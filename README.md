@@ -95,6 +95,19 @@ The program will receive three command-line arguments:
 #### Command Format
 ```bash
 ./a.out <newfile_path> <oldfile_path> <directory_path>
- 
+
+ ### Handling Argument Constraints
+The program will receive three command-line arguments:
+- `<newfile_path>`: Path to the resulting file created in Q1. If the new file does not exist, the program will print an error message and will not compare it with the old file. However, it will still check the permissions of the old file and directory.
+- `<oldfile_path>`: Path to the initial file provided in Q1. This file will be compared with the new file to determine if their contents are reversed. If the old file does not exist, the program will print an error message and only check the permissions of the new file and directory.
+- `<directory_path>`: Path to the directory where the files are expected to be located. If the directory does not exist, the program will print an error message and will only check the permissions of the new file and old file.
+
+### Handling Large Files
+To manage large files efficiently, the file is divided into chunks and the following is done :
+- The file content, equal to the buffer size (1 MB), is temporarily stored in a buffer.
+- Each chunk is then checked to determine if it is the reverse of the corresponding chunk in the other file.
+- This process continues for all chunks until the entire file is processed.
+
+
 
 
