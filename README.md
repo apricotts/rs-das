@@ -67,10 +67,34 @@ To manage large files efficiently, the file is divided into chunks, each of size
 
 - **Chunk Formation**: The file is read in chunks of 1 MB, with each chunk temporarily stored in a buffer.
 - **Reversing Content**: The content from each chunk is reversed and then written back to the target file.
-- **File Cursor Management**: For operations with `flag 1`, the file cursor is adjusted based on `start_index` and `end_index` by using 'lseek' to ensure the correct sections are processed.
+- **File Cursor Management**: For operations with `flag 1`, the file cursor is adjusted based on `start_index` and `end_index` by using 'lseek' to ensure the correct sections are processed.This approach continues until all the required content is written to the target file.
 
-This approach continues until all the required content is written to the target file.
+### Execution Order
 
+The program executes the file handling steps in the specified sequence. It processes the file in chunks, manages file content, and adjusts the file cursor as needed. If any issues arise during these steps, the program will terminate with an appropriate error message, clearly reporting the specific problem encountered.
+
+## Q.2 Problem Description
+### Problem Description
+
+A program that performs the following tasks:
+
+1. **Permission Check**: Verify the permissions for three items:
+   - The new file (`<newfile_path>`)
+   - The old file (`<oldfile_path>`)
+   - The specified directory (`<directory_path>`)
+
+2. **Content Verification**: Check if the content of the new file is the reverse of the content of the old file.
+
+#### Input
+
+The program will receive three command-line arguments:
+- `<newfile_path>`: The path to the new file.
+- `<oldfile_path>`: The path to the old file.
+- `<directory_path>`: The path to the directory where both files are located.
+
+#### Command Format
+```bash
+./a.out <newfile_path> <oldfile_path> <directory_path>
  
 
 
