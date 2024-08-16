@@ -88,10 +88,9 @@ A program that performs the following tasks:
 #### Input
 
 The program will receive three command-line arguments:
-- `<newfile_path>`: The path to the new file.
-- `<oldfile_path>`: The path to the old file.
-- `<directory_path>`: The path to the directory where both files are located.
-
+  - `<newfile_path>`: The path to the new file.
+  - `<oldfile_path>`: The path to the old file.
+  - `<directory_path>`: The path to the directory where both files are located.
 
 
  ### Handling Argument Constraints
