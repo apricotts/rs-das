@@ -33,13 +33,14 @@ The program performs different file manipulations based on the provided flag val
 - **Command Format:**
   ```bash
   ./a.out <input_file_name> <flag> <start_index> <end_index>
+- The Resulten file is  stored in the directory  'Assignment1'.
   
 ## Solution Description
 
 The solution for this problem is implemented in the file `2024202009_A1_q1.cpp`. Below is a summary of how the solution is implemented and how errors are handled:
 
 
-### Handling Argument Constraints
+### Handling Argument Constraints 
 
 - **`<input_file_name>`**: This specifies the file to be read. If the file does not exist, the program is terminate with an appropriate error message indicating that the file could not be found.
 
@@ -50,6 +51,26 @@ The solution for this problem is implemented in the file `2024202009_A1_q1.cpp`.
   - If the indices exceed the file size, the program is terminated with an "indexerror" message with approciate prompt.
   - If either argument contains non-numeric characters, the program is terminated with an "index error."
   - Ensure that the condition `start_index <= end_index` is maintained. If not, the program is terminated with an "invalid argument" error message.
+
+### File Handling
+
+- **Input File**: The file specified by `<input_file_name>` is read only if its path exists. If the file path does not exist, the program should terminate with an appropriate file error message.
+
+- **Output Directory and File**:
+  - If the output directory does not exist, it should be created with permission mode `0700`.
+  - If a file with the same name already exists in the directory, its content should be overwritten.
+  - Any failure in directory creation or file operations should prompt an error message with an adequate reason.
+
+### Handling Large Files
+
+To manage large files efficiently, the file is divided into chunks, each of size 1 MB (1024 * 1024 bytes). The process involves:
+
+- **Chunk Formation**: The file is read in chunks of 1 MB, with each chunk temporarily stored in a buffer.
+- **Reversing Content**: The content from each chunk is reversed and then written back to the target file.
+- **File Cursor Management**: For operations with `flag 1`, the file cursor is adjusted based on `start_index` and `end_index` by using 'lseek' to ensure the correct sections are processed.
+
+This approach continues until all the required content is written to the target file.
+
  
 
 
