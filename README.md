@@ -92,9 +92,7 @@ The program will receive three command-line arguments:
 - `<oldfile_path>`: The path to the old file.
 - `<directory_path>`: The path to the directory where both files are located.
 
-#### Command Format
-```bash
-./a.out <newfile_path> <oldfile_path> <directory_path>
+
 
  ### Handling Argument Constraints
 The program will receive three command-line arguments:
